@@ -1,0 +1,33 @@
+@charset 'utf8'
+
+@import 'reset'
+@import 'colors'
+@import 'grid'
+@import 'mixins'
+@import 'terminal'
+
+html, body
+  background: #fefefb
+
+.colors
+  margin-top: 15px
+  display: flex
+  align-items: center
+  justify-content: center
+  span
+    width: 20px
+    height: 20px
+    cursor: pointer
+    border: 1px solid $border-color
+    margin-right: 10px
+    border-radius: 1px
+    &.black
+      background: $black
+    &.white
+      background: $white
+    &.green
+      background: $green
+    &.red
+      background: $red
+    &.yellow
+      background: $yellow
