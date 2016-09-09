@@ -4,7 +4,7 @@
   "description": "Web Based Terminal Emulator",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rm -rf dist/ && gulp build"
   },
   "keywords": [
     "terminal",

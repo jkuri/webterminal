@@ -42,7 +42,9 @@ function initSocketHandlers(i) {
     if (input.type === 'input') {
       if (pty.stdin.writable) { pty.stdin.write(input.data); }
     } else if (input.type === 'resize') {
-      pty.stdout.resize({ columns: input.data.col, rows: input.data.row });
+      if (pty.stdout.writable) {
+        pty.stdout.resize({ columns: input.data.col, rows: input.data.row });
+      }
     }
   });
 

@@ -84,3 +84,5 @@ gulp.task('default', ['copy:html', 'sass', 'app', 'vendor', 'minify', 'server:st
   gulp.watch('./src/sass/**/*.sass', ['sass']);
   gulp.watch('./src/js/app/**/*.js', ['app']);
 });
+
+gulp.task('build', ['copy:html', 'sass', 'app', 'vendor', 'minify']);
