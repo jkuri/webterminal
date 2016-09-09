@@ -18,10 +18,6 @@ node server.js
 
 Open your browser at `http://localhost:9950` and login!
 
-### Demo
-
-http://webterm.co
-
 ### Preview
 
 <p align="center">
