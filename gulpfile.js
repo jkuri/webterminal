@@ -46,10 +46,23 @@ gulp.task('copy:html', () => {
       .pipe(copy('./dist', { prefix: 2 }));
 });
 
+gulp.task('copy:html:restart', () => {
+  gulp.src(copyHtmlFiles)
+      .pipe(copy('./dist', { prefix: 2 }))
+      .pipe(bs.reload({ stream: true }));
+});
+
 gulp.task('sass', () => {
  return gulp.src('./src/sass/app.sass')
    .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
    .pipe(gulp.dest('./dist/css'));
+});
+
+gulp.task('sass:restart', () => {
+ return gulp.src('./src/sass/app.sass')
+   .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+   .pipe(gulp.dest('./dist/css'))
+   .pipe(bs.reload({ stream: true }));
 });
 
 gulp.task('vendor', () => {
@@ -68,6 +81,17 @@ gulp.task('app', () => {
     .pipe(gulp.dest('./dist/js/'));
 });
 
+gulp.task('app:restart', () => {
+  gulp.src('./src/js/app/**/*.js')
+      .pipe(rollup({
+      format: 'iife',
+      entry: './src/js/app/app.js',
+      plugins: [buble()]
+    }))
+    .pipe(gulp.dest('./dist/js/'))
+    .pipe(bs.reload({ stream: true }));
+});
+
 gulp.task('minify', (cb) => {
   pump([
       gulp.src('./dist/js/*.js'),
@@ -80,9 +104,9 @@ gulp.task('minify', (cb) => {
 
 gulp.task('default', ['copy:html', 'sass', 'app', 'vendor', 'minify', 'server:start'], () => {
   gulp.watch(options.server.path, ['server:restart']);
-  gulp.watch(copyHtmlFiles, ['copy:html']);
-  gulp.watch('./src/sass/**/*.sass', ['sass']);
-  gulp.watch('./src/js/app/**/*.js', ['app']);
+  gulp.watch(copyHtmlFiles, ['copy:html:restart']);
+  gulp.watch('./src/sass/**/*.sass', ['sass:restart']);
+  gulp.watch('./src/js/app/**/*.js', ['app:restart'])
 });
 
 gulp.task('build', ['copy:html', 'sass', 'app', 'vendor', 'minify']);

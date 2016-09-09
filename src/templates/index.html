@@ -9,32 +9,21 @@
 </head>
 <body>
   <div class="container">
-    <div class="columns is-multiline">
-      <div class="column is-4 is-offset-4">
-        <div class="colors">
-          <span class="black"></span>
-          <span class="white"></span>
-          <span class="green"></span>
-          <span class="red"></span>
-          <span class="yellow"></span>
+    <div class="terminal-window">
+      <div class="bar">
+        <div class="bar-left">
+          <span class="circle close"></span>
+          <span class="circle minimize"></span>
+          <span class="circle expand"></span>
+        </div>
+        <div class="bar-center bold">
+        </div>
+        <div class="bar-right">
+          <span class="circle color black"></span>
+          <span class="circle no-cursor"></span>
         </div>
       </div>
-      <div class="column is-8 is-offset-2">
-        <div class="terminal-window">
-          <div class="bar">
-            <div class="bar-left">
-              <span class="circle close"></span>
-              <span class="circle minimize"></span>
-              <span class="circle expand"></span>
-            </div>
-            <div class="bar-center bold">
-            </div>
-            <div class="bar-right">
-            </div>
-          </div>
-          <div class="terminal-content"></div>
-        </div>
-      </div>
+      <div class="terminal-content"></div>
     </div>
   </div>
   <script src="js/vendor.js"></script>

@@ -12,6 +12,17 @@ export class Bar {
   }
 
   setConnectionStatus(i) {
-    this.barRight.innerHTML = this.connStatuses[i]; 
+    let circle = this.barRight.querySelector('.circle.no-cursor');
+    circle.classList.remove('expand', 'minimize', 'close');
+    if (i === 0) {
+      circle.classList.add('minimize');
+      circle.setAttribute('title', 'Connecting...');
+    } else if (i === 1) {
+      circle.classList.add('expand');
+      circle.setAttribute('title', 'Connected');
+    } else {
+      circle.classList.add('close');
+      circle.setAttribute('title', 'Disconnected');
+    } 
   }
 }

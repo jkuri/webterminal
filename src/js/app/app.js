@@ -29,24 +29,23 @@ const terminalWindow = body.querySelector('.terminal-window');
 const leftBar = body.querySelector('.terminal-window > .bar > .bar-left');
 const close = leftBar.querySelector('.close');
 const expand = leftBar.querySelector('.expand');
+const color = body.querySelector('.terminal-window > .bar > .bar-right > .color');
 
 expand.addEventListener('click', e => {
-  console.log('yes');
   e.preventDefault();
   misc.toggleSize();
 }, false);
 
-const colorButtons = document.querySelectorAll('.colors > span');
-[].forEach.call(colorButtons, btn => {
-  btn.addEventListener('click', e => {
-    let color = e.srcElement.classList.item(0);
-    changeStyle(color);
-  });
-});
-
-function changeStyle(color) {
-  let c = misc.getStyle(color);
-  terminalWindow.classList.remove('black', 'green', 'red', 'yellow');
-  terminalWindow.classList.add(color);
-  term.setStyle(c);
+function toggleStyle() {
+  if (color.classList.contains('black')) {
+    terminalWindow.classList.add('black');
+    term.setStyle(true);
+    color.classList.remove('black');
+  } else {
+    terminalWindow.classList.remove('black');
+    term.setStyle(false);
+    color.classList.add('black');
+  }
 };
+
+color.addEventListener('click', toggleStyle, false);
