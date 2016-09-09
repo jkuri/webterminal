@@ -12,6 +12,7 @@ Others technologies used: `node.js`, `express`, `ws`, and `sass` for styling.
 git clone https://github.com/jkuri/webterminal.git
 cd webterminal
 npm install
+npm run build
 node server.js
 ```
 
