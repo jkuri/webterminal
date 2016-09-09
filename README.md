@@ -1,10 +1,10 @@
 # WebTerminal
 
-WebTerminal is an xterm-compatible terminal emulator based on web techonolgies.
+WebTerminal is an xterm-compatible terminal emulator based on web technologies.
 
 It uses [this](https://chromium.googlesource.com/apps/libapps/+/HEAD/hterm) awesome lib from ChromeOS developers.
 
-Others technologies used: `node.js`, `express`, `ws`, and `sass` for styling.
+Others technologies used: `NodeJS`, `express`, `ws` and `SASS`.
 
 ### Installation
 
