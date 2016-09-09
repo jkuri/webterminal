@@ -1,6 +1,6 @@
 {
   "name": "webterminal",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "description": "Web Based Terminal Emulator",
   "main": "server.js",
   "scripts": {
