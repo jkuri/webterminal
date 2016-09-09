@@ -20,7 +20,7 @@ Open your browser at `http://localhost:9950` and login!
 
 ### Demo
 
-https://webterm.co
+http://webterm.co
 
 ### Preview
 
